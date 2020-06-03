@@ -1,1 +1,1 @@
-# ssh_github_mirrors
+# ssh-github-mirrors
