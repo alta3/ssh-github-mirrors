@@ -1,0 +1,37 @@
+2020-06-03 08:36:26 INFO     Starting up the server
+2020-06-03 08:36:41 INFO     Starting up the server
+2020-06-03 08:40:59 INFO     Starting up the server
+2020-06-03 08:41:20 INFO     Starting up the server
+2020-06-03 08:41:35 INFO     Starting up the server
+2020-06-03 08:41:35 DEBUG    Using selector: EpollSelector
+2020-06-03 08:41:54 INFO     Starting up the server
+2020-06-03 08:41:54 DEBUG    Using selector: EpollSelector
+2020-06-03 08:42:17 ERROR    Error handling request
+Traceback (most recent call last):
+  File "/home/sam/.local/lib/python3.8/site-packages/aiohttp/web_protocol.py", line 418, in start
+    resp = await task
+  File "/home/sam/.local/lib/python3.8/site-packages/aiohttp/web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "/home/sam/ssh-github-mirrors/views.py", line 13, in get_keys
+    return web.HTTPCreated(body=json.dumps(j_data[user]), content_type="application/json")
+TypeError: list indices must be integers or slices, not str
+2020-06-03 08:42:17 INFO     127.0.0.1 [03/Jun/2020:12:42:17 +0000] "GET /keys/sgriffith3 HTTP/1.1" 500 244 "-" "curl/7.58.0"
+2020-06-03 08:53:05 INFO     Starting up the server
+2020-06-03 08:53:05 DEBUG    Using selector: EpollSelector
+2020-06-03 08:53:12 ERROR    Error handling request
+Traceback (most recent call last):
+  File "/home/sam/.local/lib/python3.8/site-packages/aiohttp/web_protocol.py", line 418, in start
+    resp = await task
+  File "/home/sam/.local/lib/python3.8/site-packages/aiohttp/web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "/home/sam/ssh-github-mirrors/views.py", line 14, in get_keys
+    if j_data[user]["name"] == username:
+TypeError: list indices must be integers or slices, not dict
+2020-06-03 08:53:12 INFO     127.0.0.1 [03/Jun/2020:12:53:12 +0000] "GET /keys/sgriffith3 HTTP/1.1" 500 244 "-" "curl/7.58.0"
+2020-06-03 08:54:13 INFO     Starting up the server
+2020-06-03 08:54:13 DEBUG    Using selector: EpollSelector
+2020-06-03 08:54:16 INFO     127.0.0.1 [03/Jun/2020:12:54:16 +0000] "GET /keys/sgriffith3 HTTP/1.1" 201 557 "-" "curl/7.58.0"
+2020-06-03 10:08:06 INFO     Starting up the server
+2020-06-03 10:08:06 DEBUG    Using selector: EpollSelector
+2020-06-03 10:08:22 INFO     127.0.0.1 [03/Jun/2020:14:08:22 +0000] "GET / HTTP/1.1" 404 172 "-" "curl/7.58.0"
+2020-06-03 10:08:28 INFO     127.0.0.1 [03/Jun/2020:14:08:28 +0000] "GET /keys/sgriffith3 HTTP/1.1" 201 557 "-" "curl/7.58.0"
