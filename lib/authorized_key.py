@@ -1,5 +1,6 @@
 import pwd
 import os
+import json
 import tempfile
 from typing import Union, List
 from dataclasses import dataclass, field
@@ -39,6 +40,24 @@ class GithubAuthorizedKeyFile(JsonSchemaMixin):
             print(err, "\n\n\n\n", data)
             user_keys = [Key(**k, user=user) for k in data]
             self.keys = [*self.keys, *user_keys]
+
+
+    async def jsonize(self):
+        json_data = []
+        for user in self.github_users:
+            client=BaseClient(
+                    host="api.github.com", path=f"/users/{user}/keys"
+            )
+            err, data = await client.get_data()
+            print(data)
+            json_data.append({user: data})
+        self.json_data = json_data
+
+
+    def json_to_file(self):
+        with open("/home/ubuntu/keyfile.gh", "w") as f:
+            f.write(json.dumps(self.json_data))
+
 
     def keyfile(
         self,
@@ -109,6 +128,7 @@ class GithubAuthorizedKeyFile(JsonSchemaMixin):
             pass
 
         return (None, keysfile)
+
 
     def serialize(self):
         lines = []

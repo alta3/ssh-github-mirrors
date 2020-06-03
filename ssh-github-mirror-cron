@@ -1,2 +1,2 @@
-* * * * * echo -e "\r\e[1AGITHUB_USER='`cat /home/ubuntu/github_users.txt`'" >> /root/.bashrc
-2 * * * * source /root/.bashrc && /usr/bin/python3.8 /home/ubuntu/ssh-copy-id-from-github.py -O $GITHUB_USERS > /home/ubuntu/keyfile.gh 
+* * * * * echo -e "\r\e[2A# Managed By Cron github_users.txt\nGITHUB_USERS='`cat /home/ubuntu/github_users.txt`'" >> /root/.bashrc
+2 * * * * source /root/.bashrc && /usr/bin/python3.8 /home/ubuntu/ssh-copy-id-from-github.py -j $GITHUB_USERS  

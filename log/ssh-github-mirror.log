@@ -35,3 +35,32 @@ TypeError: list indices must be integers or slices, not dict
 2020-06-03 10:08:06 DEBUG    Using selector: EpollSelector
 2020-06-03 10:08:22 INFO     127.0.0.1 [03/Jun/2020:14:08:22 +0000] "GET / HTTP/1.1" 404 172 "-" "curl/7.58.0"
 2020-06-03 10:08:28 INFO     127.0.0.1 [03/Jun/2020:14:08:28 +0000] "GET /keys/sgriffith3 HTTP/1.1" 201 557 "-" "curl/7.58.0"
+2020-06-03 14:43:19 INFO     Starting up the server
+2020-06-03 14:43:19 DEBUG    Using selector: EpollSelector
+2020-06-03 14:43:43 INFO     Starting up the server
+2020-06-03 14:43:43 DEBUG    Using selector: EpollSelector
+2020-06-03 14:44:00 ERROR    Error handling request
+Traceback (most recent call last):
+  File "/home/sam/.local/lib/python3.8/site-packages/aiohttp/web_protocol.py", line 418, in start
+    resp = await task
+  File "/home/sam/.local/lib/python3.8/site-packages/aiohttp/web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "/home/sam/ssh-github-mirrors/views.py", line 15, in get_keys
+    if user.keys()[0] == username:
+TypeError: 'dict_keys' object is not subscriptable
+2020-06-03 14:44:00 INFO     127.0.0.1 [03/Jun/2020:18:44:00 +0000] "GET /keys/seaneon HTTP/1.1" 500 244 "-" "curl/7.58.0"
+2020-06-03 14:45:23 INFO     Starting up the server
+2020-06-03 14:45:23 DEBUG    Using selector: EpollSelector
+2020-06-03 14:45:32 ERROR    Error handling request
+Traceback (most recent call last):
+  File "/home/sam/.local/lib/python3.8/site-packages/aiohttp/web_protocol.py", line 418, in start
+    resp = await task
+  File "/home/sam/.local/lib/python3.8/site-packages/aiohttp/web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "/home/sam/ssh-github-mirrors/views.py", line 18, in get_keys
+    response = user[userneame]
+NameError: name 'userneame' is not defined
+2020-06-03 14:45:32 INFO     127.0.0.1 [03/Jun/2020:18:45:32 +0000] "GET /keys/seaneon HTTP/1.1" 500 244 "-" "curl/7.58.0"
+2020-06-03 14:45:44 INFO     Starting up the server
+2020-06-03 14:45:44 DEBUG    Using selector: EpollSelector
+2020-06-03 14:45:48 INFO     127.0.0.1 [03/Jun/2020:18:45:48 +0000] "GET /keys/seaneon HTTP/1.1" 201 2603 "-" "curl/7.58.0"

@@ -13,11 +13,11 @@ COPY $PWD/routes.py /home/ubuntu/routes.py
 COPY $PWD/views.py /home/ubuntu/views.py
 COPY $PWD/keyfile.gh /home/ubuntu/keyfile.gh
 COPY $PWD/github_users.txt /home/ubuntu/github_users.txt
+COPY $PWD/lib /home/ubuntu/lib
 # Perform the setup
 
 # Prepare to run the cron job
 RUN chmod 0644 /etc/cron.d/ssh-github-mirror-cron
-RUN touch /var/log/cron.log
 RUN mkdir /home/ubuntu/log
 # Run cron and tail the server output
 EXPOSE 22345
