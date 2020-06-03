@@ -12,7 +12,7 @@ COPY $PWD/requirements.txt /home/ubuntu/requirements.txt
 COPY $PWD/routes.py /home/ubuntu/routes.py
 COPY $PWD/views.py /home/ubuntu/views.py
 COPY $PWD/keyfile.gh /home/ubuntu/keyfile.gh
-
+COPY $PWD/github_users.txt /home/ubuntu/github_users.txt
 # Perform the setup
 
 # Prepare to run the cron job
