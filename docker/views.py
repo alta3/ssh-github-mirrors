@@ -6,7 +6,7 @@ import logging
 
 async def get_keys(request):
     try:
-        with open("keyfile.gh") as f:
+        with open("/home/ubuntu/keyfile.gh") as f:
             txt = f.read()
         username = request.match_info['user']
         j_data = json.loads(txt)

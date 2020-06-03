@@ -1,1 +1,2 @@
-2 * * * * /usr/bin/python3.8 /home/ubuntu/ssh-github-mirror.py
+* * * * * /bin/bash export GITHUB_USERS=`cat /home/ubuntu/github_users.txt`
+2 * * * * /usr/bin/python3.8 /home/ubuntu/ssh-copy-id-from-github.py -O $GITHUB_USERS > /home/ubuntu/keyfile.gh 

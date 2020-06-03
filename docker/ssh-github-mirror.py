@@ -23,7 +23,7 @@ if __name__ == "__main__":
     logging.info("Starting up the server")
     app = web.Application()
     routes.setup(app)
-    web.run_app(app, port=22345)
+    web.run_app(app, port=12345)
 
     # That's the stupidest port I've ever heard in my life!
     # That's the kinda thing an idiot would have on his luggage
