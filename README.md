@@ -14,6 +14,17 @@ This project sets up a key-mirror inside of a docker container.
 0. When you want to update the users, simply change the **github_users.txt** file. The cron job to push this file occurs every minute.
 0. If you want to force the mirror to push the **github_users.txt** file and run the update, run the **update_keys_now.sh** script.
 
+
+## Using the key-mirror
+1. Prepare your machine:
+    - `sudo apt install python3.8 `
+    - `python3.8 -m pip install aiohttp dataclasses_jsonschema`
+2. Run the `ssh-copy-id-from-github.py` script:
+    - Dry Run:
+        - `python3.8 ssh-copy-id-from-github.py -O <user1> <user2> <...>`
+    - Actually updating your ~/.ssh/authorized_keys file!!! **WARNING: DANGER: YOU-BETTER-KNOW-WHAT-YOU-ARE-DOING** # No Liability
+        - `python3.8 ssh-copy-id-from-github.py <user1> <user2> <...>`
+
 ## Teardown
 1. To get a fresh slate, you can simply run the **teardown.sh** script.
     
