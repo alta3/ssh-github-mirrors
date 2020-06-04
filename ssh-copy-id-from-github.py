@@ -30,7 +30,7 @@ def parse_args():
     output_group.add_argument(
         "-f", "--file", type=str, default=None, help="store output in FILE"
     )
-    output_group.add_argument("-j", "--json-to-file", action="store_true", default=False, help="write results to /home/ubuntu/keyfile.gh")
+    output_group.add_argument("-j", "--jsonfile", action="store_true", default=False, help="write results to /home/ubuntu/keyfile.gh")
     parser.add_argument(
         "-u",
         "--user",
@@ -52,6 +52,10 @@ if __name__ == "__main__":
         filename=args.file,
     )
     if args.jsonfile:
+        with open("/home/ubuntu/github_users.txt") as f:
+            txt = f.read().split(' ')
+            g_users = [ u.strip() for u in txt]
+        ak.github_users = g_users
         loop.run_until_complete(ak.jsonize())
         ak.json_to_file()
     else:
