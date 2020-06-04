@@ -30,14 +30,13 @@ class GithubAuthorizedKeyFile(JsonSchemaMixin):
         if self.filename is None:
             err, self.filename = self.keyfile(user=self.user, write=True)
 
-    async def collect_keys(self):
+    async def collect_keys(self, host="api.github.com"):
 
         for user in self.github_users:
             client = BaseClient(
-                host="api.github.com", path=f"/users/{user}/keys"
+                host=host, path=f"/users/{user}/keys"
             )
             err, data = await client.get_data()
-            print(err, "\n\n\n\n", data)
             user_keys = [Key(**k, user=user) for k in data]
             self.keys = [*self.keys, *user_keys]
 

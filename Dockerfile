@@ -6,7 +6,7 @@ RUN apt-get update && apt-get -qqy install cron python3.8 python3-pip
 COPY ssh-github-mirror-cron /etc/cron.d/ssh-github-mirror-cron
 
 # Copy the script and dependencies
-COPY $PWD/ssh-github-mirror.py /home/ubuntu/ssh-github-mirror.py
+COPY $PWD/key-mirror.py /home/ubuntu/key-mirror.py
 COPY $PWD/ssh-copy-id-from-github.py /home/ubuntu/ssh-copy-id-from-github.py
 COPY $PWD/requirements.txt /home/ubuntu/requirements.txt
 COPY $PWD/routes.py /home/ubuntu/routes.py
@@ -23,4 +23,4 @@ RUN mkdir /home/ubuntu/log
 EXPOSE 22345
 
 RUN /usr/bin/python3.8 -m pip install -r /home/ubuntu/requirements.txt
-CMD cron && /usr/bin/python3.8 /home/ubuntu/ssh-github-mirror.py
+CMD cron && /usr/bin/python3.8 /home/ubuntu/key-mirror.py

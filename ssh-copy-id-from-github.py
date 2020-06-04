@@ -19,6 +19,7 @@ def parse_args():
         action="store_true",
         help="store public key source details in key annotation",
     )
+    parser.add_argument("-m", "--mirror", action="store_true", default=False, help="Use the preconfigured mirror")
     output_group = parser.add_mutually_exclusive_group()
     output_group.add_argument(
         "-O",
@@ -51,6 +52,10 @@ if __name__ == "__main__":
         user=args.user,
         filename=args.file,
     )
+    if args.mirror:
+        host = "10.10.2.2:12345"
+    else:
+        host = "api.github.com"
     if args.jsonfile:
         with open("/home/ubuntu/github_users.txt") as f:
             txt = f.read().split(' ')
@@ -59,7 +64,7 @@ if __name__ == "__main__":
         loop.run_until_complete(ak.jsonize())
         ak.json_to_file()
     else:
-        loop.run_until_complete(ak.collect_keys())
+        loop.run_until_complete(ak.collect_keys(host=host))
     if args.stdout:
         print(ak.serialize())
     else:
