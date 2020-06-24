@@ -53,9 +53,13 @@ if __name__ == "__main__":
         filename=args.file,
     )
     if args.mirror:
-        host = "10.10.2.2:12345"
+        host = "10.10.2.2"
+        port = "12345"
+        ssl = False
     else:
         host = "api.github.com"
+        ssl = True
+        port = ""
     if args.jsonfile:
         with open("/home/ubuntu/github_users.txt") as f:
             txt = f.read().split(' ')
@@ -64,7 +68,7 @@ if __name__ == "__main__":
         loop.run_until_complete(ak.jsonize())
         ak.json_to_file()
     else:
-        loop.run_until_complete(ak.collect_keys(host=host))
+        loop.run_until_complete(ak.collect_keys(host=host, is_ssl=ssl, port=port))
     if args.stdout:
         print(ak.serialize())
     else:
