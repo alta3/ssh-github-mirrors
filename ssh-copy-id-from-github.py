@@ -54,7 +54,7 @@ if __name__ == "__main__":
     )
     if args.mirror:
         host = args.mirror
-        port = "12345"
+        port = "23456"
         ssl = False
     else:
         host = "api.github.com"

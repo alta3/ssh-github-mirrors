@@ -6,6 +6,6 @@ sudo docker network create --opt com.docker.network.driver.mtu=1450 --subnet 10.
 
 sudo docker build -q --build-arg user=ubuntu   --tag key-mirror ./
 
-sudo docker run --rm -d --name ssh-github-key-mirror -p 12345:12345 -h ssh-key-mirror --ip 10.10.2.2 --network key-mirror-net key-mirror
+sudo docker run --rm -d --name ssh-github-key-mirror -p 23456:23456 -h ssh-key-mirror --ip 10.10.2.2 --network key-mirror-net key-mirror
 
 echo "The Key Mirror is Ready!"

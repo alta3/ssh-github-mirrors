@@ -10,4 +10,4 @@ echo "Creating the Docker Image"
 
 echo "Your mirror is set up"
 echo
-echo "You can reach your mirror at 10.10.2.2:12345/users/{username}/keys"
+echo "You can reach your mirror at 10.10.2.2:23456/users/{username}/keys"
