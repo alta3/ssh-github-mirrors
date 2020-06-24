@@ -19,7 +19,7 @@ def parse_args():
         action="store_true",
         help="store public key source details in key annotation",
     )
-    parser.add_argument("-m", "--mirror", action="store_true", default=False, help="Use the preconfigured mirror")
+    parser.add_argument("-m", "--mirror", default="10.10.2.2", help="Use the preconfigured mirror")
     output_group = parser.add_mutually_exclusive_group()
     output_group.add_argument(
         "-O",
@@ -53,7 +53,7 @@ if __name__ == "__main__":
         filename=args.file,
     )
     if args.mirror:
-        host = "10.10.2.2"
+        host = args.mirror
         port = "12345"
         ssl = False
     else:
